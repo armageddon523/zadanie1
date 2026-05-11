@@ -3,7 +3,7 @@
 Prosta aplikacja webowa napisana w Go, uruchamiana w kontenerze Docker.  
 Aplikacja pozwala wybrać miasto z listy i wyświetla aktualną pogodę dla wybranej lokalizacji.
 
-Projekt został przygotowany zgodnie z wymaganiami zadania: aplikacja zapisuje w logach datę uruchomienia, autora oraz port TCP, a Dockerfile wykorzystuje wieloetapowe budowanie obrazu, obraz końcowy `scratch`, etykiety OCI i healthcheck.
+Projekt został przygotowany zgodnie z wymaganiami zadania: aplikacja zapisuje w logach datę uruchomienia, autora oraz port TCP, a Dockerfile wykorzystuje wieloetapowe budowanie obrazu, obraz końcowy scratch, etykiety OCI i healthcheck.
 
 ## Technologie
 
