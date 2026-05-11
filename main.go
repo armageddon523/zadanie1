@@ -30,9 +30,10 @@ type ForecastResponse struct {
 }
 
 type ViewData struct {
-	Places   map[string]Place
-	Selected Place
-	Weather  *ForecastResponse
+	Places     map[string]Place
+	Selected   Place
+	SelectedID string
+	Weather    *ForecastResponse
 }
 
 var cityList = map[string]Place{
@@ -168,8 +169,10 @@ button:hover{filter:brightness(.96)}
 	<form method="POST" action="/check">
 		<select name="place">
 			{{range $id, $p := .Places}}
-			<option value="{{$id}}">{{$p.Region}} — {{$p.Label}}</option>
-			{{end}}
+<option value="{{$id}}" {{if eq $id $.SelectedID}}selected{{end}}>
+	{{$p.Region}} — {{$p.Label}}
+</option>
+{{end}}
 		</select>
 		<button type="submit">Pokaż pogodę</button>
 	</form>
@@ -251,10 +254,11 @@ func showWeather(w http.ResponseWriter, r *http.Request) {
 	}
 
 	render(w, ViewData{
-		Places:   cityList,
-		Selected: place,
-		Weather:  weather,
-	})
+	Places:     cityList,
+	Selected:   place,
+	SelectedID: id,
+	Weather:    weather,
+})
 }
 
 func downloadWeather(place Place) (*ForecastResponse, error) {
