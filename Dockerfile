@@ -56,7 +56,3 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 # Uruchomienie aplikacji
 ENTRYPOINT ["/weatherapp"]
-
-#scratch
-#multi-stage build
-#skompresowana binarka
